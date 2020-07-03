@@ -1,0 +1,172 @@
+html {
+    scroll-behavior: smooth
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    max-width: 98vmax;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background-color: rgb(128,0,0);
+}
+
+.headingText {
+    color: rgb(255, 128, 152);
+    font-weight: 700;
+}
+
+.sectionOne {
+    background-color: rgb(255, 192, 203);
+    height: 98vh;
+    width: 99vmax;
+    margin: 0 auto;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.sectionTwo {
+    background-color: rgb(255, 192, 203);
+    height: 98vh;
+    width: 99vmax;
+    margin: 0 auto;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.sectionThree {
+    background-color: rgb(255, 192, 203);
+    height: 98vh;
+    width: 99vmax;
+    margin: 0 auto;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.outerSection {
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.introHolder {
+    height: 100%;
+    max-width: none;
+    flex: 0 0 50%;
+}
+
+.headText {
+    transition: all 2s;
+    opacity: 0;
+    display: block;
+    font-weight: 700;
+    margin-top: 15%;
+}
+
+#typed {
+    opacity: 100;
+    color: rgb(255, 128, 152)
+}
+
+#subTyped {
+    font-size: 20px;
+    color: rgb(255, 128, 152)
+}
+
+.vertical-nav {
+    min-width: 10rem;
+    width: 10rem;
+    height: 15vh;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    transition: all 0.4s;
+    background-color: transparent;
+  }
+
+  .vertical-nav-bottom {
+    min-width: 10rem;
+    margin-bottom: 4vh;
+    width: 10rem;
+    height: 15vh;
+    position: fixed;
+    z-index: 2;
+    bottom: 0;
+    right: 0;
+    transition: all 0.4s;
+    background-color: transparent;
+  }
+
+  .nav-link {
+    background-color: transparent;
+    color: maroon; 
+    transition: all 1s;
+  }
+
+  .nav-item {
+      background-color: transparent;
+  }
+
+  .projectDisplay {
+      border: solid 1px red;
+      padding: 0 0;
+      margin: 0 0;
+      height: 100%
+  }
+
+.sectionContainer {
+      border: solid 1px blue;
+      margin: 20% 0;
+      padding: 0;
+      height: 50%;
+}
+
+.sectionContainer2 {
+    border: solid 1px blue;
+    margin: 20% 0;
+    padding: 0;
+    height: 50%;
+}
+
+.site {
+    border: solid 1px blue;
+    margin: 10% auto;
+    padding: 0;
+    height: 75%;
+}
+
+.overlay { 
+    position: absolute; 
+    transition: all 0.3s ease; 
+    opacity: 0; 
+    background-color: #97759769; 
+    height: 75%;
+    width: 100%;
+    z-index: 1;
+} 
+  
+.site .overlay:hover { 
+    opacity: 1; 
+} 
+
+#pageOn {
+    transition: all 3s;
+    color: maroon;
+}
+
+.fadeIn {
+    opacity: 1;
+}
+
+.fadeOut{
+    opacity: 0;
+}
+
+.unselectable {
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+    cursor: default;
+}
