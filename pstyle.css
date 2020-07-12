@@ -14,12 +14,13 @@ body {
 .headingText {
     color: rgb(255, 128, 152);
     font-weight: 700;
+    font-size: 3vw;
 }
 
 .sectionOne {
     background-color: rgb(255, 192, 203);
     height: 98vh;
-    width: 99vmax;
+    width: 99vw;
     margin: 0 auto;
     padding-top: 50px;
     padding-bottom: 50px;
@@ -28,8 +29,9 @@ body {
 .sectionTwo {
     background-color: rgb(255, 192, 203);
     height: 98vh;
-    width: 99vmax;
+    width: 99vw;
     margin: 0 auto;
+    padding-top: 10vh;
     padding-top: 50px;
     padding-bottom: 50px;
 }
@@ -37,7 +39,7 @@ body {
 .sectionThree {
     background-color: rgb(255, 192, 203);
     height: 98vh;
-    width: 99vmax;
+    width: 99vw;
     margin: 0 auto;
     padding-top: 50px;
     padding-bottom: 50px;
@@ -74,8 +76,9 @@ body {
 }
 
 .vertical-nav {
-    min-width: 10rem;
-    width: 10rem;
+    margin-right: 2rem;
+    min-width: 8rem;
+    width: 8rem;
     height: 15vh;
     position: fixed;
     z-index: 1;
@@ -86,9 +89,9 @@ body {
   }
 
   .vertical-nav-bottom {
-    min-width: 10rem;
+    min-width: 8rem;
     margin-bottom: 4vh;
-    width: 10rem;
+    width: 8rem;
     height: 15vh;
     position: fixed;
     z-index: 2;
@@ -108,7 +111,7 @@ body {
       background-color: transparent;
   }
 
-  .projectDisplay {
+.projectDisplay {
       padding: 0 0;
       margin: 0 0;
       height: 100%
@@ -128,13 +131,22 @@ body {
 }
 
 .site {
-    border: solid 1px blue;
-    margin: 10% auto;
-    padding: 0;
+    margin: 10% auto;;
     height: 75%;
+    width: 100%;
 }
 
-.top-overlay { 
+#topOverlay {
+    position: absolute; 
+    transition: all 0.3s ease;  
+    background-color: #97759769; 
+    height: 5%;
+    width: 100%;
+    z-index: 1;
+    opacity: 0;
+}
+
+#bottomOverlay { 
     position: absolute; 
     transition: all 0.3s ease; 
     opacity: 0; 
@@ -142,35 +154,22 @@ body {
     height: 10%;
     width: 100%;
     z-index: 1;
-} 
-
-.bottom-overlay { 
-    position: absolute; 
-    transition: all 0.3s ease; 
-    opacity: 0; 
-    background-color: #97759769; 
-    height: 15%;
-    width: 100%;
-    z-index: 1;
-    bottom: 67px;
+    bottom: 0;
 } 
   
 .site:hover .top-overlay { 
     opacity: 1; 
-} 
+}
 
 .bottom-overlay:hover { 
     opacity: 1; 
 } 
 
-.top-overlay-idle {
-    opacity: 0;
-}
-
 #pageOn {
     transition: all 3s;
     color: maroon;
     cursor: default;
+    text-align: end;
 }
 
 #pageOn:hover {
@@ -205,6 +204,12 @@ body {
     width: 10rem;
 }
 
+@media (max-width: 800px) {
+    .sectionContainer2 {
+        padding-top: 28vh;
+    }
+}
+
 .sectionContainer2 .skills li {
     text-align: center;
     padding-right: 45px;
@@ -216,4 +221,71 @@ body {
     text-align: center;
     color: rgb(255, 128, 152);
     font-weight: 700;
+}
+
+#siteSelectHolder {
+    height: auto;
+}
+
+.carousel {
+    height: 100%;
+}
+
+.carousel-inner {
+    height: 100%;
+}
+
+.carousel-control-prev {
+    height: 10%;
+    margin: 25% 0% 0% 30px;
+    width: 25px;
+}
+
+.carousel-control-next {
+    height: 10%;
+    margin: 25% 30px 25% 30px;
+    width: 25px;
+}
+
+.carousel-item {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin-right: -100%;
+    float: left;
+    transition: -webkit-transform .6s ease-in-out;
+    transition: transform .6s ease-in-out;
+    transition: transform .6s ease-in-out,-webkit-transform .6s ease-in-out;
+}
+
+.siteIMG {
+    height: 100%;
+}
+
+.btn-info {
+    border-color: none;
+}
+
+.siteSelectItem {
+    background-color: rgb(255, 128, 152);
+    border-radius: 10px;
+    border: 1px solid maroon;
+    height: auto;
+    margin: 10% 0 10% 0;
+}
+
+.moreInfo {
+    transition: all .3s ease-in;
+    width: 100%;
+}
+
+.siteTitle {
+    margin: 0;
+}
+
+.siteDesc {
+    display: none;
+    background-color: rgb(194, 112, 128);
+    width: 100%;
+    margin: 0 auto;
 }
