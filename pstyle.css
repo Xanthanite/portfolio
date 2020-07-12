@@ -8,7 +8,7 @@ body {
     max-width: 98vmax;
     overflow-y: scroll;
     overflow-x: hidden;
-    background-color: rgb(128,0,0);
+    background-color: rgb(235, 176, 186);
 }
 
 .headingText {
@@ -18,7 +18,7 @@ body {
 }
 
 .sectionOne {
-    background-color: rgb(255, 192, 203);
+    background-color: rgb(128,0,0);
     height: 98vh;
     width: 99vw;
     margin: 0 auto;
@@ -27,7 +27,7 @@ body {
 }
 
 .sectionTwo {
-    background-color: rgb(255, 192, 203);
+    background-color: rgb(128,0,0);
     height: 98vh;
     width: 99vw;
     margin: 0 auto;
@@ -37,7 +37,7 @@ body {
 }
 
 .sectionThree {
-    background-color: rgb(255, 192, 203);
+    background-color: rgb(128,0,0);
     height: 98vh;
     width: 99vw;
     margin: 0 auto;
@@ -90,7 +90,7 @@ body {
 
   .vertical-nav-bottom {
     min-width: 8rem;
-    margin-bottom: 4vh;
+    margin-bottom: 1.5vh;
     width: 8rem;
     height: 15vh;
     position: fixed;
@@ -103,7 +103,7 @@ body {
 
   .nav-link {
     background-color: transparent;
-    color: maroon; 
+    color: rgb(255, 192, 203);
     transition: all 1s;
   }
 
@@ -138,7 +138,7 @@ body {
 #topOverlay {
     position: absolute; 
     transition: all 0.3s ease;  
-    background-color: #97759769; 
+    background-color: #7e5353a1; 
     height: 5%;
     width: 100%;
     z-index: 1;
@@ -149,7 +149,7 @@ body {
     position: absolute; 
     transition: all 0.3s ease; 
     opacity: 0; 
-    background-color: #97759769; 
+    background-color: #7e5353a1; 
     height: 10%;
     width: 100%;
     z-index: 1;
@@ -166,7 +166,7 @@ body {
 
 #pageOn {
     transition: all 3s;
-    color: maroon;
+    color: rgb(255, 192, 203);
     cursor: default;
     text-align: end;
 }
@@ -270,7 +270,7 @@ body {
     border-radius: 10px;
     border: 1px solid maroon;
     height: auto;
-    margin: 10% 0 10% 0;
+    margin: 10% 0 10% 2%;
 }
 
 .moreInfo {
