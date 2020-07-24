@@ -10,6 +10,8 @@
 
     <title>Michael Martinez | Web Developer</title>
 
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet"> 
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 
     <script src="https://kit.fontawesome.com/7acb4881bf.js" crossorigin="anonymous"></script>
@@ -63,11 +65,11 @@
             
         <div class = "col-sm-12 col-1 introHolder">
     
-        <a class = "display-5 headText" style = "color: rgb(194, 112, 128)">Hi, my name is</a>
+        <a class = "display-5 headText unselectable" style = "color: rgb(194, 112, 128)">Hi, my name is</a>
                     
-        <a class = "display-4 headText text-center" id = "typed"></a>
+        <a class = "display-4 headText text-center unselectable" id = "typed"></a>
                 
-        <a class = "display-4 headText" id = "subTyped"></a>
+        <a class = "display-4 headText unselectable" id = "subTyped"></a>
         
         </div>
 
@@ -84,6 +86,8 @@
             <div class="sectionContainer2 align-items-center text-center">
 
                 <h1 class="display-5 headingText unselectable">Front-End Experience</h1>
+
+                <i class="fas fa-paint-brush text-center"></i>
 
                 <ul class = "skills">
                     
@@ -102,6 +106,12 @@
                     <li>
 
                         <a class="unselectable">Javascript</a>
+                    
+                    </li>
+
+                    <li>
+                    
+                        <a class="unselectable">jQuery</a>
                     
                     </li>
 
@@ -131,13 +141,9 @@
             
                 <h1 class="display-5 headingText unselectable">Back-End Experience</h1>
 
+                <i class="far fa-file-code text-center"></i>
+
                 <ul class="skills">
-                    
-                    <li>
-                    
-                        <a class="unselectable">jQuery</a>
-                    
-                    </li>
                     
                     <li>
                         
@@ -187,35 +193,35 @@
             
             <div class="sectionContainer text-center" id="siteSelectHolder">
                 
-                <p class="headingText">Projects</a>
+                <p class="headingText unselectable">Projects</a>
                 
-                <div class="siteSelectItem">
+                <div class="siteSelectItem" id="selectItem0">
                 
-                    <h4 class="siteTitle" id="siteTitle1">Site title 1</h4>
+                    <h4 class="siteTitle unselectable" id="siteTitle1">Site title 1</h4>
                 
-                    <h5 class="siteDesc" id="siteDesc1">Info text 1</h5>
+                    <div class="siteDesc unselectable" id="siteDesc0">Info text 1</div>
 
-                    <i class="fas fa-caret-down moreInfo" id="moreInfo1"></i>
+                    <span class="moreInfoButtonHolder"><i class="fas fa-caret-down moreInfo" id="moreInfo0"></i></span>
                 
                 </div>
                 
-                <div class="siteSelectItem">
+                <div class="siteSelectItem" id="selectItem1">
                 
-                    <h4>Site title 2</h4>
+                    <h4 class="siteTitle unselectable">Site title 2</h4>
                 
-                    <h5 class="siteDesc">Info text 2</h5>
+                    <div class="siteDesc unselectable" id="siteDesc1">Info text 2</div>
 
-                    <i class="fas fa-caret-down moreInfo"></i>
+                    <span class="moreInfoButtonHolder"><i class="fas fa-caret-down moreInfo" id="moreInfo1"></i></span>
                 
                 </div>
 
-                <div class="siteSelectItem">
+                <div class="siteSelectItem" id="selectItem2">
                 
-                    <h4>Site title 3</h4>
+                    <h4 class="siteTitle unselectable">Site title 3</h4>
                 
-                    <h5 class="siteDesc">Site title 3</h5>
+                    <div class="siteDesc unselectable" id="siteDesc2">Info text 3</div>
 
-                    <i class="fas fa-caret-down moreInfo"></i>
+                    <span class="moreInfoButtonHolder"><i class="fas fa-caret-down moreInfo" id="moreInfo2"></i></span>
                 
                 </div>
 
@@ -231,37 +237,49 @@
 
                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 
-                    <div class="carousel-inner">
+                    <div class="carousel-inner carousel-group-1">
                         
                         <div class="top-overlay" id="topOverlay">
 
-                            <a style="color: white">Website Title</a>
+                            <a style="color: white" id="topOverlayText">Website Title</a>
             
                         </div>    
                       
-                    <div class="carousel-item active">
+                        <div class="carousel-item active">
                         
-                        <img class="d-block w-100 siteIMG" src="https://i.pinimg.com/originals/88/82/bc/8882bcf327896ab79fb97e85ae63a002.gif" alt="First slide">
-                      
-                    </div>
-                      
-                    <div class="carousel-item">
-                        
-                        <img class="d-block w-100 siteIMG" src="https://i.pinimg.com/originals/88/82/bc/8882bcf327896ab79fb97e85ae63a002.gif" alt="Second slide">
-                      
-                    </div>
-                      
-                    <div class="carousel-item">
-                        
-                        <img class="d-block w-100 siteIMG" src="https://i.pinimg.com/originals/88/82/bc/8882bcf327896ab79fb97e85ae63a002.gif" alt="Third slide">
-                      
-                    </div>
-                    
-                    <div class="bottom-overlay" id="bottomOverlay">
+                            <img class="w-100 siteIMG imgGroup0" src="https://i.imgur.com/D3V850N.png" alt="Main Page">
 
-                        <a style="color: white">Website Title</a>
+                            <img class="w-100 siteIMG imgGroup1" src="https://images.unsplash.com/photo-1494500764479-0c8f2919a3d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="First slide">
+
+                            <img class="w-100 siteIMG imgGroup2" src="https://images.unsplash.com/photo-1502786129293-79981df4e689?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80" alt="First Slide">
+                      
+                        </div>
+                      
+                        <div class="carousel-item">
+                        
+                            <img class="w-100 siteIMG imgGroup0" src="https://i.imgur.com/EGeT8WV.png" alt="Featured Item">
+
+                            <img class="w-100 siteIMG imgGroup1" src="https://images.unsplash.com/photo-1494500764479-0c8f2919a3d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="Second Slide">
+
+                            <img class="w-100 siteIMG imgGroup2" src="https://images.unsplash.com/photo-1502786129293-79981df4e689?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=801" alt="Second slide">
+                      
+                        </div>
+                      
+                        <div class="carousel-item">
+                        
+                            <img class="w-100 siteIMG imgGroup0" src="https://i.imgur.com/4Buv0Y6.png" alt="Grams">
+
+                            <img class="w-100 siteIMG imgGroup1" src="https://images.unsplash.com/photo-1494500764479-0c8f2919a3d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="Third slide">
+
+                            <img class="w-100 siteIMG imgGroup2" src="https://images.unsplash.com/photo-1502786129293-79981df4e689?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80" alt="Third slide">
+                      
+                        </div>
+                    
+                        <div class="bottom-overlay" id="bottomOverlay">
+
+                            <a class="btn btn-info" id="bottomOverlayText">Main Page</a>
     
-                    </div>
+                        </div>
 
                     </div>
                     
@@ -318,3 +336,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
     <script type = "text/javascript" src = "pjava.js"></script>
+</body>
+</html>
