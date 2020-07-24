@@ -22,7 +22,17 @@ var lastIdle = ""
 
 let nameLetters = 0
 
-let x = {//Sets x to be a variable with a consistent listener on it.
+let moreInfoButtons = document.querySelectorAll(".moreInfo");
+
+let siteSelectItem = document.querySelectorAll(".siteSelectItem");
+
+let siteIMG = document.querySelectorAll(".siteIMG")
+
+let imageGroup0 = document.querySelectorAll(".imgGroup0");
+
+let imageGroup1 = document.querySelectorAll(".imgGroup1");
+
+let x = {//Sets x to be a variable with a consistent listener on it. It expects the variable it's listening on to be a string
     pageselectInternal: "Introduction",
     
     pageselectListener: function(str) {},
@@ -41,7 +51,7 @@ let x = {//Sets x to be a variable with a consistent listener on it.
     }
 }
 
-x.registerListener(function(str) {//Takes x and registers the listener to then run functions
+x.registerListener(function(str) {//Registers a listener function which runs when the listener we previously set is triggered
 
     async function fader() {//this async function ensures that it will check the page that it's on before fading out.
         let promise = new Promise((resolve, reject) => {
@@ -51,7 +61,7 @@ x.registerListener(function(str) {//Takes x and registers the listener to then r
                 pageOn.innerHTML = str;
 
                 if (str == pageOn.innerHTML) {
-                    resolve("Faded");
+                    resolve();
                 }
             }, 1300);
         });
@@ -87,7 +97,7 @@ function typer() {//Typer for my name
     } 
 }
 
-setTimeout(typer, 1200);//timeout on the typer (so that it works properly)
+setTimeout(typer, 1200);//timeout on the typer from outside the function (so that it works properly)
 
 function colorChanger(page) {//Take the page name passed in to clear that page from the menu bar
     document.getElementById(page).style.color = "transparent";
@@ -124,7 +134,7 @@ window.addEventListener("scroll", function() {
                 currentPage = "Skills"
                 x.pageselect = currentPage;
                 colorChanger("pageTwo");
-                console.log("yike");
+                // console.log("page2selected");
             }
         }
 
@@ -151,7 +161,7 @@ sitePreview.addEventListener("mousemove", function() {
     if (topOverlay.style.opacity !== "1" && bottomOverlay.style.opacity !=="1"); {
         lastIdle = currentIdle;
         clearTimeout(idleListener);
-        console.log("removed the overlay idle" + idleListener);
+        // console.log("removed the overlay idle" + idleListener);
         topOverlay.style.opacity = "1";
         bottomOverlay.style.opacity = "1";
         topOverlay.classList.toggle("top-overlay");
@@ -171,18 +181,213 @@ sitePreview.addEventListener("mousemove", function() {
     }, 1500);
 });
 
-var infoStatus = "closed"
+// var infoStatus = "closed"
 
-$(".moreInfo").click(function() {
-    if (infoStatus == "closed") {
-        $("#siteDesc1").slideDown();
-        moreInfo1.style.transform = "rotate(180deg)";
-        return(infoStatus = "open");
-    };
+// $(".moreInfo").click(function() {
+//     if (infoStatus == "closed") {
+//         $("#siteDesc1").slideDown();
+//         moreInfo1.style.transform = "rotate(180deg)";
+//         return(infoStatus = "open");
+//     };
 
-    if (infoStatus == "open") {
-        $("#siteDesc1").slideUp();
-        moreInfo1.style.transform = "";
-        return(infoStatus = "closed");
-    }
+//     if (infoStatus == "open") {
+//         $("#siteDesc1").slideUp();
+//         moreInfo1.style.transform = "";
+//         return(infoStatus = "closed");
+//     }
+// })
+
+
+let siteList = [//a list of sites as the objects so we can maintain a flow of what's open and what's not
+    {name:"selectItem0", listNumber: "0", status:"closed", active: true, group: "imgGroup0", description:"siteDesc0", button:"moreInfo0", siteName:"Infinite Sushiyomi"},
+    {name:"selectItem1", listNumber: "1", status:"closed", active: false, group: "imgGroup1", description:"siteDesc1", button:"moreInfo1", siteName:"U-Magine Interior Design"},
+    {name:"selectItem2", listNumber: "2", status:"closed", active: false, group: "imgGroup2", description:"siteDesc2", button:"moreInfo2", siteName:"Third Project"}
+]
+
+function siteImageSelect(siteGroupName) {//checks the currently selected sitegroup and sets image on carousel based off the group
+    siteIMG.forEach(function(imgOfSite) {
+
+        if(imgOfSite.classList.contains(siteGroupName) == true) {
+            console.log("selected" + imgOfSite.classList)
+            imgOfSite.style.display = "block"
+        } else if (imgOfSite.classList.contains(siteGroupName) !== true) {
+            imgOfSite.style.display = "none";
+        }
+    })
+}
+
+// function siteDescSelect(descGroupName) {//checks the currently selected site description and slides the correct one down
+//     let descNum = descGroupName.charAt("8");
+//     // let descName = descGroupName 
+//     // console.log("style" + $("#" + descGroupName))
+//     // console.log("num" + descNum);
+//     // console.log("name" + descGroupName)
+
+//     if (siteList[descNum].status == "closed") {
+//         $("#" + descGroupName).slideDown();
+//         // console.log("." + descName);
+//         $("#moreInfo" + descNum).css("transform", "rotate(180deg)")
+//         // descGroupName.style.transform = "rotate(180deg)";
+//         // console.log("opened the" + item);
+//         // console.log(whichDesc.target.id + "from inside the if statement");
+//         return(siteList[descNum].status = "open");
+//     }
+        
+//     if (siteList[descNum].status == "open") {
+//         $("#" + descGroupName).slideUp();
+//         $("#moreInfo" + descNum).css("transform", "")
+//         return(siteList[descNum].status = "closed");
+//     }
+// }
+
+function openCloseHandler(descGroupName) {
+    let descNum = descGroupName.charAt("8");;
+    return new Promise(resolve => {
+        
+        setTimeout(() => {
+            // console.log("test async");
+            
+            if (siteList[descNum].status == "closed") {
+                $("#" + descGroupName).slideDown();
+                // console.log("." + descName);
+                $("#moreInfo" + descNum).css("transform", "rotate(180deg)")
+                // descGroupName.style.transform = "rotate(180deg)";
+                // console.log("opened the" + item);
+                // console.log(whichDesc.target.id + "from inside the if statement");
+                siteList[descNum].status = "open";
+            }
+                
+            else if (siteList[descNum].status == "open") {
+                $("#" + descGroupName).slideUp();
+                $("#moreInfo" + descNum).css("transform", "")
+                siteList[descNum].status = "closed";
+            }
+
+            resolve()
+        }, 10)
+    })
+}
+
+async function siteDescSelect(whichDesc){
+    let a = await openCloseHandler(whichDesc)
+    siteList.forEach(function(site) {
+        
+        if (site.active !== true && site.status == "open") {
+            // console.log(site.name)
+            $("#" + site.description).slideUp()
+            site.status = "closed";
+            $("#" + site.button).css("transform", "")
+            // console.log("finished the resolve");
+        }
+    })
+}
+
+// moreInfoButtons.forEach(function(arrowButton) {
+//     arrowButton.addEventListener("click", function(whichDesc) {
+//         let descNum = whichDesc.target.id.charAt("8")
+//         let descName = "siteDesc" + descNum
+//         // console.log(whichDesc.target.id + "from inside event listener");
+
+//             if (siteList[descNum].status == "closed") {
+//                 $("#" + descName).slideDown();
+//                 console.log("." + descName);
+//                 whichDesc.target.style.transform = "rotate(180deg)";
+//                 // console.log("opened the" + item);
+//                 // console.log(whichDesc.target.id + "from inside the if statement");
+//                 return(siteList[descNum].status = "open");
+//             }
+
+//             if (siteList[descNum].status == "open") {
+//                 $("#" + descName).slideUp();
+//                 whichDesc.target.style.transform = "";
+//                 return(siteList[descNum].status = "closed");
+//             }
+//     });
+// });
+
+var pageGroup = "0";
+
+function setPageName(pageID) {
+    setTimeout(function(){
+        var alt = $('.active').find('img')[pageID]
+        var poop = alt.attributes.alt.textContent
+        console.log(poop)
+        $("#bottomOverlayText").html(alt.attributes.alt.textContent)
+      }, 500)
+}
+
+$('.carousel').on('slide.bs.carousel', function () { 
+    setTimeout(function(){
+      setPageName(pageGroup);
+    }, 100);
+});
+
+siteSelectItem.forEach(function(theSite) {
+    $("#topOverlayText").html(siteList[0].siteName);
+    $(".carousel").on("slid.bs.carousel", function() {
+        setTimeout(function(){
+            var alt = $('.active').find('img')[0]
+            $("#bottomOverlayText").html(alt.attributes.textContent)
+          }, 100)
+    })
+
+    theSite.addEventListener("click", function(whichSite){
+        let siteNum = whichSite.target.parentNode.id.charAt("10");
+        let imgName = "imgGroup" + siteNum;
+        let descName = "siteDesc" + siteNum;
+        $(".carousel").carousel(0);
+        siteDescSelect(descName);
+        // console.log("Site num is" + siteNum)
+
+        siteList.forEach(function(siteObject){
+            
+            if (siteObject.group == imgName) {
+                // console.log("selected good " + imgName + "vs" + siteObject.group)
+                siteObject.active = true;
+                pageGroup = siteObject.listNumber
+                $("#topOverlayText").html(siteObject.siteName)
+                $("#bottomOverlayText").html()
+
+                // $("#bottomOverlayText").html($(imgName.));
+                siteImageSelect(siteObject.group);
+
+                // siteIMG.forEach(function(currIMG) {
+                //     console.log("loopy selected" + currIMG.classList);
+                //     if (currIMG.classList.contains(currentSiteGroup) == true) {
+
+                //         // console.log("the classes of current selected image are: " + currIMG.classList);
+                //         // console.log("The current image aka " + currIMG.classList + "contained: " + siteObject.group + "so we changed op to 1 for it")
+                //         currIMG.style.display = "block";
+                //     };
+                // })
+            }
+                
+            else if (siteObject.group !== imgName) {
+                // console.log("unselected good " + siteObject.group + "vs" + imgName)
+                // console.log("CURRENT SITE GROUP IS" + currentSiteGroup)
+
+                siteObject.active = false;
+
+                // siteIMG.forEach(function(currIMG) {
+                //     console.log("loopy unselected" + currIMG.classList);
+                //     if (currIMG.classList.contains(currentSiteGroup) !== true) {
+                //         console.log("post loop unselected" + currIMG.classList)
+                //         // console.log("The current image aka " + currIMG.classList + "didn't contain: " + siteObject.group + "so we changed op to 0 for it")
+                //         currIMG.style.display = "none";
+                //     }
+                // })
+            }
+            
+        })
+        // siteList.forEach(function(site) {
+        //     if (site.active !== true && site.status == "open") {
+        //         console.log(site.name)
+        //         $("#" + site.description).slideUp()
+        //         $("#" + site.button).css("transform", "")
+        //     }
+        // })
+        setPageName(pageGroup)
+    })
 })
+
+
